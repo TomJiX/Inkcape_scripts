@@ -12,7 +12,10 @@ def zig_zag(width,length,pw,angle,grey):   #all dimensions are [x,y]
     rect((0,0),(width,5), fill="black",stroke_width=0)
     rect((0,length-5),(width,length), fill="black",stroke_width=0)
 
-    rect((0,5),(width,length-5), fill=grey,stroke_width=0)
+    grad = linear_gradient((0,5),(0,(length)/2),"reflected")
+    grad.add_stop(0, 'black')
+    grad.add_stop(1, 'white')
+    rect((0,5),(width,length-5), fill=grad,stroke_width=0)
     
     border=rect((0,0),(width,length),stroke_width=0)
     pts=[(1,4)]
